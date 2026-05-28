@@ -1,11 +1,11 @@
 package com.re.studentmanage.entity;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @Entity
 @Table(name = "students")
