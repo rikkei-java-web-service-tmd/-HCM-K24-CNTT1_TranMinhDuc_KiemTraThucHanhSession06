@@ -1,0 +1,226 @@
+{
+  "info": {
+    "name": "Student API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "studentId",
+      "value": "1"
+    },
+    {
+      "key": "missingId",
+      "value": "999999"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. GET all - 200",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "2. GET by id - 200",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "3. GET by id - 404",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students/{{missingId}}"
+      }
+    },
+    {
+      "name": "4. POST create - 201",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Nguyen Van A\",\n  \"email\": \"nguyenvana@example.com\",\n  \"gpa\": 3.4\n}"
+        },
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "5. PUT update all - 200",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Nguyen Van A Updated\",\n  \"email\": \"nguyenvana.updated@example.com\",\n  \"gpa\": 3.7\n}"
+        },
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "6. PUT missing id - 404",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Not Found\",\n  \"email\": \"notfound@example.com\",\n  \"gpa\": 2.5\n}"
+        },
+        "url": "{{baseUrl}}/api/students/{{missingId}}"
+      }
+    },
+    {
+      "name": "7. PATCH gpa - 200",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"gpa\": 3.9\n}"
+        },
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "8. PATCH email - 200",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"new.email@example.com\"\n}"
+        },
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "9. PATCH missing id - 404",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"gpa\": 1.0\n}"
+        },
+        "url": "{{baseUrl}}/api/students/{{missingId}}"
+      }
+    },
+    {
+      "name": "10. DELETE - 204",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "11. DELETE missing id - 404",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students/{{missingId}}"
+      }
+    },
+    {
+      "name": "XML example - GET all",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/xml"
+          }
+        ],
+        "url": "{{baseUrl}}/api/students"
+      }
+    }
+  ]
+}
