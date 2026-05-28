@@ -1,0 +1,13 @@
+GET     http://localhost:8080/api/students
+GET     http://localhost:8080/api/students/1
+POST    http://localhost:8080/api/students
+PUT     http://localhost:8080/api/students/1
+PATCH   http://localhost:8080/api/students/1
+DELETE  http://localhost:8080/api/students/1
+http://localhost:8080/api/students
+body post:
+{
+"fullName": "Nguyen Van A",
+"email": "a@gmail.com",
+"gpa": 3.5
+}
